@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Interaktif | I Ketut Chandra Ugrasena Putra</title>
+  
+  <!-- Font Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CLI Output & Fallback CDN -->
+  <link href="./src/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Library Confetti (Ledakan Kertas Warna-Warni) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0f19;
+      color: #f1f5f9;
+    }
+
+    /* Custom Scrollbar Soft Dark */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0f19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #38bdf8;
+    }
+
+    /* Animation Fade In */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-sky-500 selection:text-black">
+
+  <!-- Ambient Soft Background Glows -->
+  <div class="fixed top-[-10%] left-[-5%] w-[500px] h-[500px] bg-sky-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="fixed bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <!-- HEADER NAVBAR (KONSISTEN) -->
+  <header class="w-full bg-[#0b0f19]/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      
+      <!-- Logo Nama -->
+      <a href="index.html" class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 hover:opacity-90 transition">
+        CHANDRA
+      </a>
+
+      <!-- NAVIGASI MENU UTAMA (Menu 'KUIS' Aktif) -->
+      <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm text-slate-300">
+        <a href="index.html" class="hover:text-sky-400 transition duration-200">Home</a>
+        <a href="about.html" class="hover:text-sky-400 transition duration-200">Tentang</a>
+        <a href="projects.html" class="hover:text-sky-400 transition duration-200">Proyek</a>
+        <a href="quiz.html" class="text-sky-400 font-bold border-b-2 border-sky-400 pb-1">KUIS</a>
+        <a href="contact.html" class="hover:text-sky-400 transition duration-200">Kontak</a>
+      </nav>
+
+      <!-- Tombol Hubungi Saya -->
+      <a href="contact.html" class="hidden md:inline-block px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold text-xs tracking-wide shadow-lg shadow-sky-500/20 hover:opacity-90 hover:-translate-y-0.5 transition duration-200 border border-sky-400/30">
+        Hubungi Saya
+      </a>
+
+      <!-- Tombol Hamburger (Mobile HP) -->
+      <button onclick="toggleMobileMenu()" aria-label="Buka Menu" class="md:hidden text-slate-300 hover:text-sky-400 p-2 rounded-xl bg-slate-900 border border-slate-800 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Dropdown Menu Mobile HP -->
+    <div id="mobileMenu" class="hidden md:hidden max-w-7xl mx-auto mt-4 pt-4 border-t border-slate-800 flex flex-col space-y-3 font-semibold text-slate-300">
+      <a href="index.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Home</a>
+      <a href="about.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Tentang</a>
+      <a href="projects.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Proyek</a>
+      <a href="quiz.html" class="text-sky-400 font-bold px-3 py-2 rounded-lg bg-sky-500/10 border border-sky-500/20">KUIS</a>
+      <a href="contact.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Kontak</a>
+    </div>
+  </header>
+
+  <!-- UTAMA: APLIKASI KUIS -->
+  <main class="max-w-4xl mx-auto px-6 py-12 md:py-16 flex-grow w-full">
+
+    <!-- Header Kuis -->
+    <div class="text-center space-y-3 mb-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider shadow-inner">
+        🧠 UJI PEMAHAMAN WEB DEV
+      </div>
+      <h1 class="text-3xl md:text-4xl font-black text-white">
+        Kuis <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-fuchsia-400">Interaktif</span>
+      </h1>
+      <p class="text-slate-400 text-xs md:text-sm max-w-md mx-auto">
+        Uji pengetahuanmu seputar HTML5, Tailwind CSS, JavaScript, dan konsep Web Development dasar dalam 10 soal!
+      </p>
+    </div>
+
+    <!-- WADAH SOAL KUIS (Tampil saat kuis berjalan) -->
+    <div id="quizContainer" class="bg-[#131b2e] border border-slate-800/80 rounded-3xl p-6 md:p-10 shadow-2xl space-y-8 animate-fade">
+      
+      <!-- Progress Bar & Counter -->
+      <div class="space-y-2">
+        <div class="flex justify-between items-center text-xs font-semibold">
+          <span id="questionCounter" class="text-sky-400 font-mono">Soal 1 dari 10</span>
+          <span id="progressPercent" class="text-slate-400 font-mono">10%</span>
+        </div>
+        <div class="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+          <div id="progressBar" class="h-full bg-gradient-to-r from-sky-500 to-indigo-500 rounded-full transition-all duration-300 w-[10%]"></div>
+        </div>
+      </div>
+
+      <!-- Teks Pertanyaan -->
+      <div class="space-y-2">
+        <h2 id="questionText" class="text-lg md:text-xl font-bold text-white leading-relaxed">
+          Loading pertanyaan...
+        </h2>
+      </div>
+
+      <!-- Pilihan Jawaban -->
+      <div id="optionsContainer" class="grid grid-cols-1 gap-3.5">
+        <!-- Opsi jawaban diisi oleh JavaScript -->
+      </div>
+
+      <!-- Tombol Navigasi Soal -->
+      <div class="flex justify-between items-center pt-4 border-t border-slate-800">
+        <button id="prevBtn" onclick="prevQuestion()" disabled class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-500 font-bold text-xs disabled:opacity-40 disabled:cursor-not-allowed hover:text-white transition">
+          ← Sebelumnya
+        </button>
+        <button id="nextBtn" onclick="nextQuestion()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold text-xs shadow-lg shadow-sky-500/20 hover:opacity-90 transition">
+          Selanjutnya →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- WADAH HASIL AKHIR -->
+    <div id="resultContainer" class="hidden bg-[#131b2e] border border-slate-800/80 rounded-3xl p-8 md:p-12 shadow-2xl text-center space-y-8 animate-fade">
+      
+      <div class="space-y-2">
+        <div class="inline-block p-4 rounded-3xl bg-sky-500/10 text-4xl mb-2">🏆</div>
+        <h2 class="text-2xl md:text-3xl font-black text-white">Hasil Kuis Kamu!</h2>
+        <p id="resultFeedback" class="text-slate-400 text-xs md:text-sm">
+          Kerja bagus! Berikut adalah ringkasan performa kamu.
+        </p>
+      </div>
+
+      <!-- Kartu Skor Utama -->
+      <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 max-w-sm mx-auto space-y-2">
+        <span class="text-xs text-slate-400 font-bold uppercase tracking-wider block">Skor Akhir</span>
+        <div id="finalScoreText" class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-fuchsia-400">
+          0 / 100
+        </div>
+      </div>
+
+      <!-- Grid Rincian Nilai -->
+      <div class="grid grid-cols-3 gap-4 max-w-md mx-auto">
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+          <span class="text-xl font-bold text-emerald-400 block" id="correctCount">0</span>
+          <span class="text-[11px] text-slate-400">Benar</span>
+        </div>
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+          <span class="text-xl font-bold text-rose-400 block" id="wrongCount">0</span>
+          <span class="text-[11px] text-slate-400">Salah</span>
+        </div>
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+          <span class="text-xl font-bold text-sky-400 block" id="accuracyPercent">0%</span>
+          <span class="text-[11px] text-slate-400">Akurasi</span>
+        </div>
+      </div>
+
+      <!-- Tombol Ulangi Kuis -->
+      <div class="pt-4">
+        <button onclick="restartQuiz()" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 via-indigo-600 to-fuchsia-600 text-white font-bold text-xs shadow-lg shadow-sky-500/20 hover:opacity-90 hover:-translate-y-0.5 transition duration-200">
+          🔄 Coba Kuis Lagi
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER HAK CIPTA -->
+  <footer class="w-full bg-[#080c16] border-t border-slate-800/80 py-6 px-6 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto text-center md:text-left">
+      <p class="font-medium text-slate-400">© 2026 I Ketut Chandra Ugrasena Putra. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT KUIS INTERAKTIF & ANIMASI CONFETTI MELEDAK -->
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // DAFTAR 10 SOAL KUIS WEB DEV
+    const questions = [
+      {
+        question: "1. Apa kepanjangan dari HTML?",
+        options: [
+          "HyperText Markup Language",
+          "HighText Machine Language",
+          "Hyperlink Text Management Language",
+          "Home Tool Markup Language"
+        ],
+        answer: 0
+      },
+      {
+        question: "2. Framework CSS modern yang mengusung pendekatan Utility-First adalah?",
+        options: [
+          "Bootstrap",
+          "Tailwind CSS",
+          "Bulma",
+          "Foundation"
+        ],
+        answer: 1
+      },
+      {
+        question: "3. Metode JavaScript mana yang digunakan untuk memilih elemen HTML berdasarkan ID?",
+        options: [
+          "document.getElementsByClassName()",
+          "document.querySelector()",
+          "document.getElementById()",
+          "document.getElementByTagName()"
+        ],
+        answer: 2
+      },
+      {
+        question: "4. Properti CSS apa yang digunakan untuk membuat tata letak fleksibel secara responsif?",
+        options: [
+          "display: block",
+          "display: flex",
+          "position: absolute",
+          "float: left"
+        ],
+        answer: 1
+      },
+      {
+        question: "5. Tag HTML mana yang digunakan untuk menghubungkan file CSS eksternal?",
+        options: [
+          "<script>",
+          "<style>",
+          "<link>",
+          "<css>"
+        ],
+        answer: 2
+      },
+      {
+        question: "6. Manakah dari berikut ini yang merupakan tipe data primitif di JavaScript?",
+        options: [
+          "String",
+          "Array",
+          "Object",
+          "Function"
+        ],
+        answer: 0
+      },
+      {
+        question: "7. Metode HTTP mana yang paling aman digunakan untuk mengirim data formulir berisi informasi sensitif?",
+        options: [
+          "GET",
+          "POST",
+          "PUT",
+          "DELETE"
+        ],
+        answer: 1
+      },
+      {
+        question: "8. Apa fungsi dari perintah `git clone` pada Git?",
+        options: [
+          "Membuat branch baru",
+          "Menduplikasi repositori dari remote ke lokal",
+          "Mengunggah komit ke GitHub",
+          "Menghapus repositori"
+        ],
+        answer: 1
+      },
+      {
+        question: "9. Struktur data mana yang menerapkan prinsip LIFO (Last In, First Out)?",
+        options: [
+          "Queue (Antrean)",
+          "LinkedList",
+          "Stack (Tumpukan)",
+          "Binary Tree"
+        ],
+        answer: 2
+      },
+      {
+        question: "10. Di Tailwind CSS, class mana yang digunakan untuk memberikan margin bagian atas sebesar 1rem (16px)?",
+        options: [
+          "p-4",
+          "mt-4",
+          "pt-4",
+          "m-4"
+        ],
+        answer: 1
+      }
+    ];
+
+    let currentIdx = 0;
+    let userAnswers = new Array(questions.length).fill(null);
+
+    function renderQuestion() {
+      const q = questions[currentIdx];
+      
+      // Update Counter & Progress Bar
+      document.getElementById('questionCounter').innerText = `Soal ${currentIdx + 1} dari ${questions.length}`;
+      const percent = Math.round(((currentIdx + 1) / questions.length) * 100);
+      document.getElementById('progressPercent').innerText = `${percent}%`;
+      document.getElementById('progressBar').style.width = `${percent}%`;
+
+      // Update Teks Pertanyaan
+      document.getElementById('questionText').innerText = q.question;
+
+      // Update Opsi Jawaban
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+
+      q.options.forEach((optText, optIdx) => {
+        const isSelected = userAnswers[currentIdx] === optIdx;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => selectOption(optIdx);
+        
+        btn.className = `w-full text-left p-4 rounded-2xl border text-xs md:text-sm font-semibold transition duration-200 flex items-center justify-between ${
+          isSelected 
+            ? 'bg-sky-500/20 border-sky-500 text-white shadow-md shadow-sky-500/10' 
+            : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-800/80'
+        }`;
+
+        btn.innerHTML = `
+          <span>${String.fromCharCode(65 + optIdx)}. ${optText}</span>
+          <span class="w-5 h-5 rounded-full border flex items-center justify-center text-[10px] ${
+            isSelected ? 'border-sky-400 bg-sky-400 text-black font-black' : 'border-slate-700 text-transparent'
+          }">✓</span>
+        `;
+
+        container.appendChild(btn);
+      });
+
+      // Update Status Tombol Navigasi
+      document.getElementById('prevBtn').disabled = currentIdx === 0;
+      
+      const nextBtn = document.getElementById('nextBtn');
+      if (currentIdx === questions.length - 1) {
+        nextBtn.innerText = "Selesai & Lihat Hasil 🏆";
+        nextBtn.className = "px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs shadow-lg shadow-emerald-500/20 hover:opacity-90 transition";
+      } else {
+        nextBtn.innerText = "Selanjutnya →";
+        nextBtn.className = "px-6 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold text-xs shadow-lg shadow-sky-500/20 hover:opacity-90 transition";
+      }
+    }
+
+    function selectOption(optIdx) {
+      userAnswers[currentIdx] = optIdx;
+      renderQuestion();
+    }
+
+    function nextQuestion() {
+      if (userAnswers[currentIdx] === null) {
+        alert("Silakan pilih salah satu jawaban terlebih dahulu sebelum melanjutkan!");
+        return;
+      }
+
+      if (currentIdx < questions.length - 1) {
+        currentIdx++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentIdx > 0) {
+        currentIdx--;
+        renderQuestion();
+      }
+    }
+
+    // FUNGSI LEDAKAN CONFETTI KERTAS SELEBRASI
+    function triggerConfetti() {
+      if (typeof confetti === 'function') {
+        // Ledakan Sisi Kiri
+        confetti({
+          particleCount: 80,
+          angle: 60,
+          spread: 60,
+          origin: { x: 0, y: 0.7 }
+        });
+
+        // Ledakan Sisi Kanan
+        confetti({
+          particleCount: 80,
+          angle: 120,
+          spread: 60,
+          origin: { x: 1, y: 0.7 }
+        });
+      }
+    }
+
+    function showResults() {
+      let correct = 0;
+      questions.forEach((q, idx) => {
+        if (userAnswers[idx] === q.answer) {
+          correct++;
+        }
+      });
+
+      const score = Math.round((correct / questions.length) * 100);
+      const wrong = questions.length - correct;
+
+      document.getElementById('quizContainer').classList.add('hidden');
+      document.getElementById('resultContainer').classList.remove('hidden');
+
+      document.getElementById('finalScoreText').innerText = `${score} / 100`;
+      document.getElementById('correctCount').innerText = correct;
+      document.getElementById('wrongCount').innerText = wrong;
+      document.getElementById('accuracyPercent').innerText = `${score}%`;
+
+      const feedback = document.getElementById('resultFeedback');
+      if (score === 100) {
+        feedback.innerText = "Sempurna! Kamu menguasai semua materi web dev dengan sangat baik! 🥳";
+      } else if (score >= 70) {
+        feedback.innerText = "Hebat! Pemahaman dasar kamu sudah sangat solid! 👍";
+      } else {
+        feedback.innerText = "Tetap semangat! Terus tingkatkan dan pelajari kembali materi web dev. 💪";
+      }
+
+      // PICU LEDAKAN CONFETTI DARI KIRI & KANAN
+      triggerConfetti();
+    }
+
+    function restartQuiz() {
+      currentIdx = 0;
+      userAnswers.fill(null);
+      document.getElementById('resultContainer').classList.add('hidden');
+      document.getElementById('quizContainer').classList.remove('hidden');
+      renderQuestion();
+    }
+
+    // Inisialisasi saat halaman selesai dimuat
+    window.addEventListener('DOMContentLoaded', () => {
+      renderQuestion();
+    });
+  </script>
+
+</body>
+</html>

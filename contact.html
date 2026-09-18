@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak | I Ketut Chandra Ugrasena Putra</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link href="./src/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0f19;
+      color: #f1f5f9;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0f19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+
+    body.light-mode {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+    body.light-mode header {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      border-color: #e2e8f0 !important;
+    }
+    body.light-mode nav a {
+      color: #334155 !important;
+    }
+    body.light-mode .bg-\[\#131b2e\], body.light-mode .bg-slate-900 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    body.light-mode .text-white {
+      color: #0f172a !important;
+    }
+    body.light-mode .text-slate-300, body.light-mode .text-slate-400 {
+      color: #475569 !important;
+    }
+    body.light-mode footer {
+      background-color: #f1f5f9 !important;
+      border-color: #e2e8f0 !important;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-sky-500 selection:text-black">
+
+  <div class="fixed top-[-10%] left-[-5%] w-[500px] h-[500px] bg-sky-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="fixed bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <!-- HEADER NAVBAR -->
+  <header class="w-full bg-[#0b0f19]/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      
+      <a href="index.html" class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 hover:opacity-90 transition">
+        CHANDRA
+      </a>
+
+      <!-- NAVIGASI -->
+      <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm text-slate-300">
+        <a href="index.html" class="hover:text-sky-400 transition duration-200">Home</a>
+        <a href="about.html" class="hover:text-sky-400 transition duration-200">Tentang</a>
+        <a href="projects.html" class="hover:text-sky-400 transition duration-200">Proyek</a>
+        <a href="contact.html" class="text-sky-400 font-bold border-b-2 border-sky-400 pb-1">Kontak</a>
+      </nav>
+
+      <!-- TOMBOL GELAP / TERANG -->
+      <button onclick="toggleTheme()" aria-label="Ubah Tema Gelap/Terang" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:scale-105 transition duration-200 flex items-center justify-center">
+        <span class="theme-icon text-lg">🌙</span>
+      </button>
+
+      <!-- Hamburger Menu Mobile -->
+      <button onclick="toggleMobileMenu(event)" aria-label="Buka Menu" class="md:hidden text-slate-300 p-2 rounded-xl bg-slate-900 border border-slate-800 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden max-w-7xl mx-auto mt-4 pt-4 border-t border-slate-800 flex flex-col space-y-3 font-semibold text-slate-300">
+      <a href="index.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Home</a>
+      <a href="about.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Tentang</a>
+      <a href="projects.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Proyek</a>
+      <a href="contact.html" class="text-sky-400 font-bold px-3 py-2 rounded-lg bg-sky-500/10 border border-sky-500/20">Kontak</a>
+    </div>
+  </header>
+
+  <!-- UTAMA: KONTAK SAYA -->
+  <main class="max-w-7xl mx-auto px-6 py-12 md:py-16 space-y-10 flex-grow">
+    
+    <!-- Bagian Header Teks yang Lebih Santai -->
+    <div class="text-center max-w-xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider shadow-sm">
+        ☕ Let's Keep in Touch
+      </div>
+
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
+        Kontak <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-fuchsia-400">Saya</span>
+      </h1>
+      
+      <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+        Punya pertanyaan seputar proyek, ide kolaborasi, atau sekadar mau sapa? Jangan ragu buat kirim pesan di bawah ya!
+      </p>
+    </div>
+
+    <!-- Container Form yang Lebih Cair & Nyaman Dilihat -->
+    <div class="max-w-xl mx-auto bg-[#131b2e] p-8 md:p-10 rounded-[2.5rem] border border-slate-800/80 shadow-2xl relative overflow-hidden">
+      <!-- Efek aksen cahaya tipis di pojok form -->
+      <div class="absolute -top-24 -right-24 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5 relative z-10">
+        <div class="space-y-2">
+          <label class="text-xs font-bold text-slate-300 flex items-center justify-between">
+            <span>Siapa nama kamu?</span>
+            <span class="text-sky-400 text-[10px]">Wajib diisi</span>
+          </label>
+          <input type="text" required placeholder="Cth: Budi Santoso" class="w-full px-4 py-3.5 rounded-2xl bg-slate-900 border border-slate-800 text-white text-xs focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition">
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-xs font-bold text-slate-300 flex items-center justify-between">
+            <span>Email aktif kamu</span>
+            <span class="text-sky-400 text-[10px]">Untuk balasan</span>
+          </label>
+          <input type="email" required placeholder="Cth: budi@domain.com" class="w-full px-4 py-3.5 rounded-2xl bg-slate-900 border border-slate-800 text-white text-xs focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition">
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-xs font-bold text-slate-300 flex items-center justify-between">
+            <span>Pesan atau topik obrolan</span>
+            <span class="text-sky-400 text-[10px]">Bebas & santai</span>
+          </label>
+          <textarea rows="4" required placeholder="Tulis pesan kamu di sini..." class="w-full px-4 py-3.5 rounded-2xl bg-slate-900 border border-slate-800 text-white text-xs focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold text-xs tracking-wide shadow-lg shadow-sky-500/25 hover:opacity-95 hover:scale-[1.01] active:scale-[0.99] transition duration-200">
+          🚀 Kirim Pesan Sekarang
+        </button>
+      </form>
+    </div>
+
+  </main>
+
+  <footer class="w-full bg-[#080c16] border-t border-slate-800/80 py-6 px-6 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto text-center md:text-left">
+      <p class="font-medium text-slate-400">© 2026 I Ketut Chandra Ugrasena Putra. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu(e) {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Pesan berhasil terkirim! Terima kasih sudah mampir ya.');
+      e.target.reset();
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        document.querySelectorAll('.theme-icon').forEach(el => el.innerText = '☀️');
+      } else {
+        document.body.classList.remove('light-mode');
+        document.querySelectorAll('.theme-icon').forEach(el => el.innerText = '🌙');
+      }
+    }
+
+    function toggleTheme() {
+      const isLight = document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      document.querySelectorAll('.theme-icon').forEach(el => el.innerText = isLight ? '☀️' : '🌙');
+    }
+
+    document.addEventListener('DOMContentLoaded', initTheme);
+  </script>
+</body>
+</html>

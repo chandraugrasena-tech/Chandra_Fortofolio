@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | I Ketut Chandra Ugrasena Putra</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link href="./src/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0f19;
+      color: #f1f5f9;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0f19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+
+    /* Cursor Kedip untuk Typewriter */
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      background-color: #38bdf8;
+      margin-left: 4px;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Ambient Background Pulse Animation */
+    @keyframes floatGlow {
+      0%, 100% { transform: translateY(0px) scale(1); opacity: 0.15; }
+      50% { transform: translateY(-20px) scale(1.08); opacity: 0.25; }
+    }
+    .animate-glow-1 {
+      animation: floatGlow 8s ease-in-out infinite;
+    }
+    .animate-glow-2 {
+      animation: floatGlow 10s ease-in-out infinite 2s;
+    }
+
+    /* Scroll Reveal Fade-In Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mode Terang */
+    body.light-mode {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+    body.light-mode header {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      border-color: #e2e8f0 !important;
+    }
+    body.light-mode nav a {
+      color: #334155 !important;
+    }
+    body.light-mode .bg-\[\#131b2e\], body.light-mode .bg-slate-900 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    body.light-mode .text-white {
+      color: #0f172a !important;
+    }
+    body.light-mode .text-slate-300, body.light-mode .text-slate-400 {
+      color: #475569 !important;
+    }
+    body.light-mode footer {
+      background-color: #f1f5f9 !important;
+      border-color: #e2e8f0 !important;
+    }
+    body.light-mode .wave-fill {
+      fill: #f1f5f9 !important;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-sky-500 selection:text-black">
+
+  <!-- Dynamic Glowing Background Effects -->
+  <div class="fixed top-[-10%] left-[-5%] w-[550px] h-[550px] bg-sky-600/20 rounded-full blur-[140px] pointer-events-none animate-glow-1"></div>
+  <div class="fixed bottom-[-10%] right-[-5%] w-[550px] h-[550px] bg-indigo-600/20 rounded-full blur-[140px] pointer-events-none animate-glow-2"></div>
+
+  <!-- HEADER NAVBAR -->
+  <header class="w-full bg-[#0b0f19]/80 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-50 px-6 py-4 transition-all">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      
+      <a href="index.html" class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 hover:scale-105 transition duration-200">
+        CHANDRA
+      </a>
+
+      <!-- NAVIGASI -->
+      <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm text-slate-300">
+        <a href="index.html" class="text-sky-400 font-bold border-b-2 border-sky-400 pb-1">Home</a>
+        <a href="about.html" class="hover:text-sky-400 transition duration-200 hover:-translate-y-0.5 inline-block">Tentang</a>
+        <a href="projects.html" class="hover:text-sky-400 transition duration-200 hover:-translate-y-0.5 inline-block">Proyek</a>
+        <a href="contact.html" class="hover:text-sky-400 transition duration-200 hover:-translate-y-0.5 inline-block">Kontak</a>
+      </nav>
+
+      <!-- AKSES KANAN -->
+      <div class="flex items-center space-x-3">
+        <a href="contact.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-sky-500 to-indigo-500 hover:opacity-90 hover:scale-105 transition duration-200 shadow-lg shadow-sky-500/20">
+          Hubungi Saya
+        </a>
+        <button onclick="toggleTheme()" aria-label="Ubah Tema Gelap/Terang" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:scale-110 active:scale-95 transition duration-200 flex items-center justify-center">
+          <span class="theme-icon text-lg">🌙</span>
+        </button>
+
+        <!-- Hamburger Menu Mobile -->
+        <button onclick="toggleMobileMenu(event)" aria-label="Buka Menu" class="md:hidden text-slate-300 p-2 rounded-xl bg-slate-900 border border-slate-800 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden max-w-7xl mx-auto mt-4 pt-4 border-t border-slate-800 flex flex-col space-y-3 font-semibold text-slate-300">
+      <a href="index.html" class="text-sky-400 font-bold px-3 py-2 rounded-lg bg-sky-500/10 border border-sky-500/20">Home</a>
+      <a href="about.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Tentang</a>
+      <a href="projects.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Proyek</a>
+      <a href="contact.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Kontak</a>
+      <a href="contact.html" class="text-center py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-sky-500 to-indigo-500">Hubungi Saya</a>
+    </div>
+  </header>
+
+  <!-- UTAMA / LANDING CONTENT -->
+  <main class="space-y-0 pb-16">
+
+    <!-- HERO SECTION -->
+    <section class="max-w-5xl mx-auto px-6 pt-16 md:pt-24 text-center space-y-8 min-h-[75vh] flex flex-col justify-center items-center">
+      
+      <!-- Badge Kampus -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider hover:border-sky-400 transition duration-300 shadow-md">
+        <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+        MAHASISWA ILMU KOMPUTER UNDIKSHA
+      </div>
+
+      <!-- Judul Nama (Hanya Nama yang Ketik-Hapus Terus Menerus) -->
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight min-h-[140px] md:min-h-[180px] flex flex-col items-center justify-center">
+        <span>Halo, Saya</span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-fuchsia-400 inline-block">
+          <span id="typewriter-name"></span><span class="typing-cursor">&nbsp;</span>
+        </span>
+      </h1>
+
+      <!-- Deskripsi Singkat Hero -->
+      <p class="text-slate-400 text-xs md:text-sm lg:text-base max-w-2xl leading-relaxed">
+        Eksplorasi pembuatan aplikasi web modern, penyusunan struktur data yang efisien, serta perancangan antarmuka visual yang bersih dan responsif.
+      </p>
+
+      <!-- Tombol Aksi Hero -->
+      <div class="flex flex-wrap justify-center gap-4 pt-2">
+        <a href="projects.html" class="px-6 py-3.5 rounded-2xl text-xs md:text-sm font-bold text-white bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600 hover:opacity-95 hover:scale-105 active:scale-95 transition duration-200 shadow-lg shadow-sky-500/25 flex items-center gap-2 group">
+          🚀 Jelajahi Semua Proyek
+          <span class="group-hover:translate-x-1 transition duration-200">→</span>
+        </a>
+        <a href="about.html" class="px-6 py-3.5 rounded-2xl text-xs md:text-sm font-bold text-slate-300 bg-slate-900/80 border border-slate-800 hover:border-slate-600 hover:text-white hover:scale-105 active:scale-95 transition duration-200 flex items-center gap-2">
+          👤 Profil Lengkap Saya
+        </a>
+      </div>
+
+      <!-- Tag Skill & Tech Stack -->
+      <div class="flex flex-wrap justify-center gap-3 pt-4 font-mono text-[11px] text-slate-400">
+        <span class="px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-center gap-1.5 hover:border-amber-400/50 hover:text-white hover:scale-105 transition duration-200">
+          <span class="text-amber-400">⚡</span> Frontend & Web Dev
+        </span>
+        <span class="px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-center gap-1.5 hover:border-sky-400/50 hover:text-white hover:scale-105 transition duration-200">
+          <span class="text-sky-400">☕</span> Java & Data Structure
+        </span>
+        <span class="px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-center gap-1.5 hover:border-purple-400/50 hover:text-white hover:scale-105 transition duration-200">
+          <span class="text-purple-400">🤖</span> AI Simulation
+        </span>
+      </div>
+
+      <!-- Petunjuk Scroll Down -->
+      <div class="pt-6 text-slate-500 text-[11px] font-medium animate-bounce flex flex-col items-center gap-1 opacity-80 hover:opacity-100 transition">
+        <span>Scroll ke bawah untuk eksplorasi lengkap</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- ELEMEN GELOMBANG (WAVE DIVIDER SEPERTI CONTOH GAMBAR) -->
+    <div class="w-full overflow-hidden leading-none pt-12">
+      <svg class="relative block w-full h-[60px] md:h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,130.83,121.6,200,115.8,241.6,112.3,281.44,91.3,321.39,56.44Z" class="wave-fill fill-[#0d1527] transition-colors"></path>
+      </svg>
+    </div>
+
+    <!-- SECTION RINGKASAN: TENTANG SAYA -->
+    <section class="bg-[#0d1527] py-16 transition-colors">
+      <div class="max-w-7xl mx-auto px-6 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-7 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold">
+              👋 SEKILAS TENTANG SAYA
+            </div>
+            <h2 class="text-2xl md:text-4xl font-black text-white">
+              Pengembang Web & Mahasiswa Informatika
+            </h2>
+            <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+              Saya adalah mahasiswa Universitas Pendidikan Ganesha (Undiksha) prodi Ilmu Komputer. Saya memiliki minat besar dalam menciptakan aplikasi web yang intuitif, mempelajari efisiensi struktur data, serta merancang visual UI/UX yang modern.
+            </p>
+            <div class="pt-2">
+              <a href="about.html" class="inline-flex items-center gap-2 text-xs font-bold text-sky-400 hover:text-sky-300 transition group">
+                Selengkapnya tentang saya 
+                <span class="group-hover:translate-x-1.5 transition duration-200">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-[#131b2e] p-6 rounded-3xl border border-slate-800 shadow-xl space-y-4 hover:border-sky-500/40 hover:-translate-y-1 transition duration-300">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pendidikan & Status</div>
+            <div class="space-y-3 text-xs">
+              <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800/80 hover:border-slate-700 transition">
+                <span class="text-slate-400 block text-[10px]">Perguruan Tinggi</span>
+                <span class="font-bold text-white">Universitas Pendidikan Ganesha</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800/80 hover:border-slate-700 transition">
+                <span class="text-slate-400 block text-[10px]">Program Studi</span>
+                <span class="font-bold text-white">Ilmu Komputer</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GELOMBANG KEDUA UNTUK TRANSISI KEMBALI -->
+    <div class="w-full overflow-hidden leading-none rotate-180">
+      <svg class="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,130.83,121.6,200,115.8,241.6,112.3,281.44,91.3,321.39,56.44Z" class="wave-fill fill-[#0d1527] transition-colors"></path>
+      </svg>
+    </div>
+
+    <!-- SECTION PREVIEW: PROYEK UNGGULAN -->
+    <section class="max-w-7xl mx-auto px-6 pt-10 space-y-10 reveal">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold">
+            📁 PREVIEW KARYA
+          </div>
+          <h2 class="text-2xl md:text-4xl font-black text-white">
+            Proyek Pilihan
+          </h2>
+        </div>
+        <a href="projects.html" class="inline-flex items-center gap-2 text-xs font-bold text-sky-400 hover:text-sky-300 transition group">
+          Lihat semua proyek 
+          <span class="group-hover:translate-x-1.5 transition duration-200">→</span>
+        </a>
+      </div>
+
+      <!-- Single Project Card Preview -->
+      <div class="max-w-2xl mx-auto bg-[#131b2e] rounded-3xl border border-slate-800 overflow-hidden hover:border-indigo-500/60 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 transition duration-300 group">
+        <div class="relative w-full h-48 bg-gradient-to-br from-indigo-950 via-slate-900 to-sky-950 flex items-center justify-center overflow-hidden">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-125 transition duration-300">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3zm-6 6c0-1.657 1.343-3 3-3h3v3c0 1.657-1.343 3-3 3s-3-1.343-3-3zm0-6c0-1.657 1.343-3 3-3h3v6H9c-1.657 0-3-1.343-3-3zm0-6c0-1.657 1.343-3 3-3h3v6H9c-1.657 0-3-1.343-3-3zm6-3c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z"/></svg>
+          </div>
+          <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-indigo-500/20 text-[10px] font-bold text-indigo-300 uppercase">
+            Figma Prototype
+          </span>
+        </div>
+        <div class="p-6 space-y-4">
+          <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition">
+            Rancangan Antarmuka & Prototype Aplikasi
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Eksplorasi perancangan alur antarmuka pengguna, pembuatan wireframe interaktif, dan prototipe aplikasi digital menggunakan Figma.
+          </p>
+          <div class="pt-2 flex justify-between items-center">
+            <span class="text-[11px] font-semibold text-slate-500">UI/UX Design</span>
+            <a href="projects.html" class="text-xs font-bold text-sky-400 hover:underline">Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- TOMBOL FLOATING BACK TO TOP (PERSISE SEPERTI GAMBAR CONTOH) -->
+  <button id="backToTop" onclick="scrollToTop()" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-teal-600 hover:bg-teal-500 text-white shadow-xl hover:scale-110 active:scale-95 transition duration-300 opacity-0 pointer-events-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-[#080c16] border-t border-slate-800/80 py-8 px-6 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+      
+      <div>
+        <p class="font-medium text-slate-400">© 2026 I Ketut Chandra Ugrasena Putra. All rights reserved.</p>
+      </div>
+
+      <!-- Ikon Sosial Media -->
+      <div class="flex items-center space-x-4">
+        
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/chandraaaa_____?stkn=OGRxdWo4M2EyN3oy&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-pink-400 hover:border-pink-500/50 hover:scale-110 active:scale-95 transition duration-200">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/share/18vwW8W5CV/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-blue-500 hover:border-blue-500/50 hover:scale-110 active:scale-95 transition duration-200">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://youtube.com/@iketutchandraugrasenaputra7120?si=qVynfUT6oLs3Ov8h" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-red-500 hover:border-red-500/50 hover:scale-110 active:scale-95 transition duration-200">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/chandraugrasena-tech?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 hover:scale-110 active:scale-95 transition duration-200">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // 1. ANIMASI TYPEWRITER HANYA UNTUK NAMA KAMU (LOOPING TERUS MENERUS)
+    const nameText = "I Ketut Chandra Ugrasena Putra";
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById("typewriter-name");
+
+    function typeNameEffect() {
+      if (isDeleting) {
+        typingElement.textContent = nameText.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = nameText.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === nameText.length) {
+        typeSpeed = 2500; // Diam sejenak selama 2.5 detik saat nama lengkap terketik
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        typeSpeed = 600; // Jeda singkat sebelum mengetik ulang
+      }
+
+      setTimeout(typeNameEffect, typeSpeed);
+    }
+
+    // 2. SCROLL REVEAL & TOMBOL BACK TO TOP
+    function handleScroll() {
+      // Scroll reveal section
+      const reveals = document.querySelectorAll(".reveal");
+      const windowHeight = window.innerHeight;
+      
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          element.classList.add("active");
+        }
+      });
+
+      // Show/Hide Back to Top Button
+      const backToTopBtn = document.getElementById("backToTop");
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.remove("opacity-0", "pointer-events-none");
+        backToTopBtn.classList.add("opacity-100", "pointer-events-auto");
+      } else {
+        backToTopBtn.classList.add("opacity-0", "pointer-events-none");
+        backToTopBtn.classList.remove("opacity-100", "pointer-events-auto");
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 3. MOBILE MENU TOGGLE
+    function toggleMobileMenu(e) {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // 4. DARK / LIGHT THEME TOGGLE
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        document.querySelectorAll('.theme-icon').forEach(el => el.innerText = '☀️');
+      } else {
+        document.body.classList.remove('light-mode');
+        document.querySelectorAll('.theme-icon').forEach(el => el.innerText = '🌙');
+      }
+    }
+
+    function toggleTheme() {
+      const isLight = document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      document.querySelectorAll('.theme-icon').forEach(el => el.innerText = isLight ? '☀️' : '🌙');
+    }
+
+    // INISIALISASI
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      typeNameEffect();
+      handleScroll();
+    });
+
+    window.addEventListener('scroll', handleScroll);
+  </script>
+</body>
+</html>

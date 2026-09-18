@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyek | I Ketut Chandra Ugrasena Putra</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link href="./src/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0f19;
+      color: #f1f5f9;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0f19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+
+    /* Style untuk Mode Terang */
+    body.light-mode {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+    body.light-mode header {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      border-color: #e2e8f0 !important;
+    }
+    body.light-mode nav a {
+      color: #334155 !important;
+    }
+    body.light-mode .bg-\[\#131b2e\], body.light-mode .bg-slate-900 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    body.light-mode .text-white {
+      color: #0f172a !important;
+    }
+    body.light-mode .text-slate-300, body.light-mode .text-slate-400 {
+      color: #475569 !important;
+    }
+    body.light-mode footer {
+      background-color: #f1f5f9 !important;
+      border-color: #e2e8f0 !important;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-sky-500 selection:text-black">
+
+  <div class="fixed top-[-10%] left-[-5%] w-[500px] h-[500px] bg-sky-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="fixed bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <!-- HEADER NAVBAR -->
+  <header class="w-full bg-[#0b0f19]/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      
+      <a href="index.html" class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 hover:opacity-90 transition">
+        CHANDRA
+      </a>
+
+      <!-- NAVIGASI -->
+      <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm text-slate-300">
+        <a href="index.html" class="hover:text-sky-400 transition duration-200">Home</a>
+        <a href="about.html" class="hover:text-sky-400 transition duration-200">Tentang</a>
+        <a href="projects.html" class="text-sky-400 font-bold border-b-2 border-sky-400 pb-1">Proyek</a>
+        <a href="contact.html" class="hover:text-sky-400 transition duration-200">Kontak</a>
+      </nav>
+
+      <!-- AKSES KANAN -->
+      <div class="flex items-center space-x-3">
+        <a href="contact.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-sky-500 to-indigo-500 hover:opacity-90 transition duration-200 shadow-lg shadow-sky-500/20">
+          Hubungi Saya
+        </a>
+        <button onclick="toggleTheme()" aria-label="Ubah Tema Gelap/Terang" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:scale-105 transition duration-200 flex items-center justify-center">
+          <span class="theme-icon text-lg">🌙</span>
+        </button>
+
+        <!-- Hamburger Menu Mobile -->
+        <button onclick="toggleMobileMenu(event)" aria-label="Buka Menu" class="md:hidden text-slate-300 p-2 rounded-xl bg-slate-900 border border-slate-800 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden max-w-7xl mx-auto mt-4 pt-4 border-t border-slate-800 flex flex-col space-y-3 font-semibold text-slate-300">
+      <a href="index.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Home</a>
+      <a href="about.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Tentang</a>
+      <a href="projects.html" class="text-sky-400 font-bold px-3 py-2 rounded-lg bg-sky-500/10 border border-sky-500/20">Proyek</a>
+      <a href="contact.html" class="hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-900 transition">Kontak</a>
+      <a href="contact.html" class="text-center py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-sky-500 to-indigo-500">Hubungi Saya</a>
+    </div>
+  </header>
+
+  <!-- UTAMA: PROYEK -->
+  <main class="max-w-7xl mx-auto px-6 py-12 md:py-16 space-y-12 flex-grow">
+    
+    <div class="text-center space-y-3 max-w-2xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider">
+        📁 PORTOFOLIO
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-white">
+        Proyek
+      </h1>
+      <p class="text-slate-400 text-sm md:text-base">
+        Kumpulan rancangan antarmuka dan eksperimen desain interaktif yang telah dibangun menggunakan Figma.
+      </p>
+    </div>
+
+    <!-- TAMPILAN SATU PROYEK UTAMA (FIGMA PROTOTYPE) -->
+    <div class="max-w-xl mx-auto">
+      <div class="bg-[#131b2e] rounded-3xl border border-slate-800 overflow-hidden hover:border-indigo-500/50 transition duration-300 flex flex-col group shadow-xl">
+        
+        <!-- Gambar / Thumbnail Proyek -->
+        <div class="relative w-full h-56 bg-gradient-to-br from-indigo-950 via-slate-900 to-sky-950 flex items-center justify-center overflow-hidden">
+          <div class="absolute inset-0 opacity-25 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          <div class="w-16 h-16 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition duration-300 shadow-lg">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3zm-6 6c0-1.657 1.343-3 3-3h3v3c0 1.657-1.343 3-3 3s-3-1.343-3-3zm0-6c0-1.657 1.343-3 3-3h3v6H9c-1.657 0-3-1.343-3-3zm0-6c0-1.657 1.343-3 3-3h3v6H9c-1.657 0-3-1.343-3-3zm6-3c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z"/></svg>
+          </div>
+          <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-[11px] font-bold text-indigo-300 uppercase tracking-wider backdrop-blur-sm">
+            Figma Prototype
+          </span>
+        </div>
+
+        <!-- Konten Detail Proyek -->
+        <div class="p-6 space-y-4 flex flex-col justify-between flex-grow">
+          <div class="space-y-2">
+            <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">UI/UX DESIGN & INTERACTIVE FLOW</span>
+            <h3 class="text-xl font-black text-white group-hover:text-indigo-300 transition">
+              Rancangan Antarmuka & Prototype Aplikasi
+            </h3>
+            <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+              Eksplorasi pembuatan user flow, wireframe interaktif, dan desain tata letak antarmuka aplikasi digital secara komprehensif menggunakan Figma.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] font-semibold text-indigo-300">Figma</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] font-semibold text-indigo-300">Prototyping</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] font-semibold text-indigo-300">User Flow</span>
+            </div>
+            <a href="https://figma.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 text-xs font-bold text-white hover:opacity-90 transition shadow-md shadow-indigo-500/20">
+              Lihat Desain
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="w-full bg-[#080c16] border-t border-slate-800/80 py-6 px-6 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto text-center md:text-left">
+      <p class="font-medium text-slate-400">© 2026 I Ketut Chandra Ugrasena Putra. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu(e) {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        document.querySelectorAll('.theme-icon').forEach(el => el.innerText = '☀️');
+      } else {
+        document.body.classList.remove('light-mode');
+        document.querySelectorAll('.theme-icon').forEach(el => el.innerText = '🌙');
+      }
+    }
+
+    function toggleTheme() {
+      const isLight = document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      document.querySelectorAll('.theme-icon').forEach(el => el.innerText = isLight ? '☀️' : '🌙');
+    }
+
+    document.addEventListener('DOMContentLoaded', initTheme);
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | I Ketut Chandra Ugrasena Putra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap bar">
+      <a href="index.html" class="brand">CHANDRA</a>
+      <nav class="menu"><a href="index.html" class=active>Home</a><a href="about.html">Tentang</a><a href="projects.html">Proyek</a><a href="contact.html">Kontak</a></nav>
+      <div class="actions">
+        <a href="contact.html" class="btn btn-primary btn-sm cta">Hubungi Saya</a>
+        <button class="icon-btn" onclick="toggleTheme()" aria-label="Ubah Tema Gelap/Terang"><span class="theme-icon">🌙</span></button>
+        <button class="icon-btn burger" onclick="toggleMenu()" aria-label="Buka Menu">☰</button>
+      </div>
+    </div>
+    <nav id="mobileMenu" class="wrap"><a href="index.html" class=active>Home</a><a href="about.html">Tentang</a><a href="projects.html">Proyek</a><a href="contact.html">Kontak</a></nav>
+  </header>
+  <main>
+    <section class="hero wrap">
+      <span class="badge"><span class="dot"></span>Mahasiswa Ilmu Komputer Undiksha</span>
+      <h1>Halo, Saya<span class="name">I Ketut Chandra Ugrasena Putra</span></h1>
+      <p class="lead">Eksplorasi pembuatan aplikasi web modern, penyusunan struktur data yang efisien, serta perancangan antarmuka visual yang bersih dan responsif.</p>
+      <div class="row">
+        <a href="projects.html" class="btn btn-primary">🚀 Jelajahi Semua Proyek <span class="arrow">→</span></a>
+        <a href="about.html" class="btn btn-outline">👤 Profil Lengkap Saya</a>
+      </div>
+      <div class="row"><span class="chip">⚡ Frontend &amp; Web Dev</span><span class="chip">☕ Java &amp; Data Structure</span><span class="chip">🤖 AI Simulation</span></div>
+      <p class="hint">Scroll ke bawah untuk eksplorasi lengkap<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></p>
+    </section>
+    <div class="wave"><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,130.83,121.6,200,115.8,241.6,112.3,281.44,91.3,321.39,56.44Z"/></svg></div>
+    <section class="block alt reveal"><div class="wrap two">
+      <div>
+        <span class="badge">👋 Sekilas Tentang Saya</span>
+        <h2>Pengembang Web &amp; Mahasiswa Informatika</h2>
+        <p>Saya adalah mahasiswa Universitas Pendidikan Ganesha (Undiksha) prodi Ilmu Komputer. Saya memiliki minat besar dalam menciptakan aplikasi web yang intuitif, mempelajari efisiensi struktur data, serta merancang visual UI/UX yang modern.</p>
+        <a href="about.html" class="link">Selengkapnya tentang saya →</a>
+      </div>
+      <div class="card info">
+        <h4>Pendidikan &amp; Status</h4>
+        <p><small>Perguruan Tinggi</small><b>Universitas Pendidikan Ganesha</b></p>
+        <p><small>Program Studi</small><b>Ilmu Komputer</b></p>
+      </div>
+    </div></section>
+    <div class="wave flip"><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,130.83,121.6,200,115.8,241.6,112.3,281.44,91.3,321.39,56.44Z"/></svg></div>
+    <section class="block wrap reveal">
+      <div class="head-row">
+        <div class="title"><span class="badge">📁 Preview Karya</span><h2>Proyek Pilihan</h2></div>
+        <a href="projects.html" class="link">Lihat semua proyek →</a>
+      </div>
+    <div class="grid2">
+      <article class="card">
+        <button class="preview theme-preview" id="previewH" data-theme-preview data-preview="dark" aria-label="Klik untuk mengubah tema pratinjau">
+          <div class="pv">
+            <div class="pv-head"><span><span class="lbl-d">Mode Gelap</span><span class="lbl-l">Mode Terang</span></span><span class="pv-sw"></span></div>
+            <div class="pv-row" style="width:80%"></div><div class="pv-row" style="width:55%"></div>
+            <div class="pv-cards"><i></i><i></i></div>
+          </div>
+          <small>Klik untuk ganti tema</small>
+        </button>
+        <div class="card-body">
+          <span class="kicker">UI/UX &amp; Frontend</span>
+          <h3>Pengubah Tema Gelap &amp; Terang</h3>
+          <p>Sistem tema ganda yang berpindah antara mode gelap dan terang dalam satu klik. Pilihan tema tersimpan di browser, jadi tampilan tetap sama saat halaman dimuat ulang.</p>
+          <div class="card-foot">
+            <div><span class="tag">JavaScript</span><span class="tag">CSS Variables</span><span class="tag">localStorage</span></div>
+            <button class="btn btn-primary btn-sm" data-theme-btn="previewH">Ubah Tema</button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="preview mj" href="https://mutiara-jaya-5d91.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Buka situs Mutiara Jaya">
+          <div class="mj-app">
+            <div class="mj-top"><b>Mutiara Jaya</b><span>🛒</span></div>
+            <div class="mj-pill">Anter ke: Alamat saya</div>
+            <div class="mj-promo">Promo hari ini</div>
+            <div class="mj-item"><i></i><span></span></div><div class="mj-item"><i></i><span></span></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="kicker">Web Pesan Antar Makanan</span>
+          <h3>Mutiara Jaya</h3>
+          <p>Website e-commerce pesan antar makanan dengan alur seperti aplikasi pesan antar: ubah alamat tujuan, pilih promo, dan atur keranjang belanja.</p>
+          <div class="card-foot">
+            <div><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span></div>
+            <a class="btn btn-primary btn-sm" href="https://mutiara-jaya-5d91.vercel.app/" target="_blank" rel="noopener noreferrer">Kunjungi Situs →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    </section>
+  </main>
+  <button id="backToTop" onclick="scrollToTop()" aria-label="Kembali ke atas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg></button>
+  <footer>
+    <div class="wrap foot">
+      <p>© 2026 I Ketut Chandra Ugrasena Putra. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/chandraaaa_____?stkn=OGRxdWo4M2EyN3oy&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.facebook.com/share/18vwW8W5CV/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/></svg></a>
+        <a href="https://youtube.com/@iketutchandraugrasenaputra7120?si=qVynfUT6oLs3Ov8h" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://github.com/chandraugrasena-tech?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/menu.js"></script>
+  <script src="js/project-theme.js"></script>
+  <script src="js/scroll.js"></script>
+</body>
+</html>

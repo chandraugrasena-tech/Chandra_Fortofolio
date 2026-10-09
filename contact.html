@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak | I Ketut Chandra Ugrasena Putra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap bar">
+      <a href="index.html" class="brand">CHANDRA</a>
+      <nav class="menu"><a href="index.html">Home</a><a href="about.html">Tentang</a><a href="projects.html">Proyek</a><a href="contact.html" class=active>Kontak</a></nav>
+      <div class="actions">
+        
+        <button class="icon-btn" onclick="toggleTheme()" aria-label="Ubah Tema Gelap/Terang"><span class="theme-icon">🌙</span></button>
+        <button class="icon-btn burger" onclick="toggleMenu()" aria-label="Buka Menu">☰</button>
+      </div>
+    </div>
+    <nav id="mobileMenu" class="wrap"><a href="index.html">Home</a><a href="about.html">Tentang</a><a href="projects.html">Proyek</a><a href="contact.html" class=active>Kontak</a></nav>
+  </header>
+  <main>
+    <section class="block wrap narrow">
+      <div class="title">
+        <span class="badge">☕ Let's Keep in Touch</span>
+        <h1>Kontak <span class="accent">Saya</span></h1>
+        <p>Punya pertanyaan seputar proyek, ide kolaborasi, atau sekadar mau sapa? Jangan ragu buat kirim pesan di bawah ya!</p>
+      </div>
+      <form class="card form" onsubmit="sendForm(event)">
+        <label><span>Siapa nama kamu? <em>Wajib diisi</em></span><input type="text" required placeholder="Cth: Chandra Ugrasena"></label>
+        <label><span>Email aktif kamu <em>Untuk balasan</em></span><input type="email" required placeholder="Cth: chandra@gmail.com"></label>
+        <label><span>Pesan atau topik obrolan <em>Bebas &amp; santai</em></span><textarea rows="4" required placeholder="Tulis pesan kamu di sini..."></textarea></label>
+        <button type="submit" class="btn btn-primary">🚀 Kirim Pesan Sekarang</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap foot">
+      <p>© 2026 I Ketut Chandra Ugrasena Putra. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js/menu.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>

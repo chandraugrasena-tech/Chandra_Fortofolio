@@ -1,0 +1,10 @@
+:root {
+  --bg: #15181d; --bg-alt: #1a1e24; --surface: #1f242b; --surface-2: #272d36;
+  --line: #323944; --text: #e9ebee; --text-2: #c3c8d0; --muted: #98a0ac;
+  --accent: #8aa9c8; --btn: #3d6a98; --header: rgba(21, 24, 29, .92);
+}
+[data-theme="light"] {
+  --bg: #f5f6f8; --bg-alt: #eceff3; --surface: #fff; --surface-2: #f0f2f5;
+  --line: #d9dde3; --text: #1b2028; --text-2: #3f4753; --muted: #5f6876;
+  --accent: #2d5b8a; --btn: #2d5b8a; --header: rgba(245, 246, 248, .92);
+}

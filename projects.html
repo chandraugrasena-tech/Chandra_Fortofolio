@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyek | I Ketut Chandra Ugrasena Putra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap bar">
+      <a href="index.html" class="brand">CHANDRA</a>
+      <nav class="menu"><a href="index.html">Home</a><a href="about.html">Tentang</a><a href="projects.html" class=active>Proyek</a><a href="contact.html">Kontak</a></nav>
+      <div class="actions">
+        <a href="contact.html" class="btn btn-primary btn-sm cta">Hubungi Saya</a>
+        <button class="icon-btn" onclick="toggleTheme()" aria-label="Ubah Tema Gelap/Terang"><span class="theme-icon">🌙</span></button>
+        <button class="icon-btn burger" onclick="toggleMenu()" aria-label="Buka Menu">☰</button>
+      </div>
+    </div>
+    <nav id="mobileMenu" class="wrap"><a href="index.html">Home</a><a href="about.html">Tentang</a><a href="projects.html" class=active>Proyek</a><a href="contact.html">Kontak</a></nav>
+  </header>
+  <main>
+    <section class="block wrap">
+      <div class="title">
+        <span class="badge">📁 Portofolio</span>
+        <h1>Proyek</h1>
+        <p>Kumpulan proyek web yang telah saya bangun, dari eksperimen antarmuka sampai aplikasi e-commerce.</p>
+      </div>
+    <div class="grid2">
+      <article class="card">
+        <button class="preview theme-preview" id="previewP" data-theme-preview data-preview="dark" aria-label="Klik untuk mengubah tema pratinjau">
+          <div class="pv">
+            <div class="pv-head"><span><span class="lbl-d">Mode Gelap</span><span class="lbl-l">Mode Terang</span></span><span class="pv-sw"></span></div>
+            <div class="pv-row" style="width:80%"></div><div class="pv-row" style="width:55%"></div>
+            <div class="pv-cards"><i></i><i></i></div>
+          </div>
+          <small>Klik untuk ganti tema</small>
+        </button>
+        <div class="card-body">
+          <span class="kicker">UI/UX &amp; Frontend</span>
+          <h3>Pengubah Tema Gelap &amp; Terang</h3>
+          <p>Sistem tema ganda yang berpindah antara mode gelap dan terang dalam satu klik. Pilihan tema tersimpan di browser, jadi tampilan tetap sama saat halaman dimuat ulang.</p>
+          <div class="card-foot">
+            <div><span class="tag">JavaScript</span><span class="tag">CSS Variables</span><span class="tag">localStorage</span></div>
+            <button class="btn btn-primary btn-sm" data-theme-btn="previewP">Ubah Tema</button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="preview mj" href="https://mutiara-jaya-5d91.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Buka situs Mutiara Jaya">
+          <div class="mj-app">
+            <div class="mj-top"><b>Mutiara Jaya</b><span>🛒</span></div>
+            <div class="mj-pill">Anter ke: Alamat saya</div>
+            <div class="mj-promo">Promo hari ini</div>
+            <div class="mj-item"><i></i><span></span></div><div class="mj-item"><i></i><span></span></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="kicker">Web Pesan Antar Makanan</span>
+          <h3>Mutiara Jaya</h3>
+          <p>Website e-commerce pesan antar makanan dengan alur seperti aplikasi pesan antar: ubah alamat tujuan, pilih promo, dan atur keranjang belanja.</p>
+          <div class="card-foot">
+            <div><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span></div>
+            <a class="btn btn-primary btn-sm" href="https://mutiara-jaya.vercel.app/" target="_blank" rel="noopener noreferrer">Kunjungi Situs →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap foot">
+      <p>© 2026 I Ketut Chandra Ugrasena Putra. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js/menu.js"></script>
+  <script src="js/project-theme.js"></script>
+  <script src="js/scroll.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.form { padding: 2rem; display: grid; gap: 1.25rem; }
+.form label { display: grid; gap: .5rem; font-size: .75rem; font-weight: 700; }
+.form input, .form textarea { font: inherit; padding: .85rem 1rem; border-radius: 1rem; background: var(--bg); border: 1px solid var(--line); color: var(--text); resize: none; }
+.form input:focus, .form textarea:focus { outline: 0; border-color: var(--accent); }
+.form label span { display: flex; justify-content: space-between; }
+.form em { font-style: normal; font-size: .625rem; color: var(--accent); }

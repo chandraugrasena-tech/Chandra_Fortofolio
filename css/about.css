@@ -1,0 +1,12 @@
+.photo { border: 1px solid var(--line); border-radius: 1.75rem; padding: 4px; max-width: 20rem; margin: 0 auto; }
+.photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; border-radius: 1.5rem; display: block; }
+.tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; }
+.tool { display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 1rem; background: var(--surface); border: 1px solid var(--line); }
+.tool .icon { width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border-radius: .75rem; background: var(--surface-2); color: var(--accent); font-weight: 800; font-size: .75rem; }
+.tool svg { width: 1.4rem; height: 1.4rem; fill: currentColor; }
+.tool h4 { font-size: .875rem; } .tool p { margin: 0; font-size: .75rem; }
+.photo { overflow: hidden; }
+.photo img { transition: transform .5s; }
+.photo:hover img { transform: scale(1.05); }
+.tool { transition: transform .2s, border-color .2s; }
+.tool:hover { transform: translateY(-3px); border-color: var(--accent); }

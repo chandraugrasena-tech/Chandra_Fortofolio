@@ -1,0 +1,18 @@
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; transition: background .3s, color .3s; }
+main { flex: 1; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; }
+p { color: var(--muted); line-height: 1.7; margin-top: .75rem; }
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+.block { padding: 4rem 1.5rem; }
+.alt { background: var(--bg-alt); }
+.narrow { max-width: 36rem; }
+.two { display: grid; gap: 2rem; align-items: center; }
+.row { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin-top: 1.5rem; }
+.title { text-align: center; margin-bottom: 2rem; }
+.head-row { display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem; }
+.head-row .title { text-align: left; margin: 0; }
